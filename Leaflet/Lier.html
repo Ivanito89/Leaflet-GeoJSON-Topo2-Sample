@@ -1,0 +1,141 @@
+<html>
+<head>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+
+</head>
+<body>
+
+<div id="map" style="width:100%; height:100%;">
+</div>
+
+<script>
+  var map = L.map('map', { minZoom: 0, maxZoom: 18 }).setView([59.7864, 10.2445], 17);
+
+  var topolayer = new L.TileLayer.WMS("http://opencache.statkart.no/gatekeeper/gk/gk.open", {
+      layers: 'topo2',
+      format: 'image/png',
+      transparent: false,
+      version: "1.0",
+      attribution: "Kartverket"
+  }).addTo(map);
+
+  var lierPolygon = { "type": "Feature", "id": 223, "properties": { "NAVN": "Lier", "KOMM": 626, "SHAPE_AREA": 309159912.954, "SHAPE_LEN": 75611.208351099995 }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 10.231623314041588, 59.746351030680415 ], [ 10.231623307581382, 59.746351034021131 ], [ 10.199147750833005, 59.763131344300206 ], [ 10.099167863229404, 59.814632918662817 ], [ 10.069171039828154, 59.858802638808861 ], [ 10.063319506647462, 59.862115846638446 ], [ 10.12546380513856, 59.899537082306423 ], [ 10.102470173501739, 59.941074041517382 ], [ 10.187411051470301, 59.952911273921359 ], [ 10.258532236504157, 59.967988416723898 ], [ 10.292749962903102, 59.975223894735755 ], [ 10.314044458578204, 59.968560141176354 ], [ 10.349630768815224, 59.957410230743946 ], [ 10.362887233057245, 59.905935591104509 ], [ 10.36267505602402, 59.903268477003976 ], [ 10.362565407362334, 59.893779736063486 ], [ 10.356036539445844, 59.887530510781964 ], [ 10.352664497929808, 59.88622767130542 ], [ 10.352033040690277, 59.877613248225934 ], [ 10.33043890515866, 59.870053358687571 ], [ 10.332479510736929, 59.860810994704586 ], [ 10.331695715154769, 59.854934174472355 ], [ 10.336675329277194, 59.848068014154002 ], [ 10.342544197001269, 59.842993766430205 ], [ 10.348293857525395, 59.839587545611742 ], [ 10.35066726716421, 59.832268632220689 ], [ 10.353345795867114, 59.822083169490156 ], [ 10.353590554346422, 59.821152118659732 ], [ 10.342608143527535, 59.79401172434217 ], [ 10.327649105848579, 59.778999103861494 ], [ 10.325607956241416, 59.772633772536452 ], [ 10.314759702576465, 59.738766819605026 ], [ 10.317229353618227, 59.729898299188051 ], [ 10.318177410478, 59.726492337684896 ], [ 10.317638573620698, 59.726874993346833 ], [ 10.310001056165675, 59.732297580819946 ], [ 10.304039806070271, 59.736528461271391 ], [ 10.293268086443391, 59.744169858617497 ], [ 10.256039291561461, 59.74812588150516 ], [ 10.243327717670583, 59.749473987005274 ], [ 10.232990806657126, 59.746716032055666 ], [ 10.231623327118928, 59.746351034170644 ], [ 10.231623314041588, 59.746351030680415 ] ] ] } };
+
+  var points = {
+      "type" : "FeatureCollection", 
+      "features" : [
+        {
+          "type" : "Feature", 
+          "id" : 1, 
+          "geometry" : 
+          {
+            "type" : "Point", 
+            "coordinates" : [
+              10.2427, 59.7871
+            ]
+          }, 
+          "properties" : {
+            "Title" : "Gründermiljø i Lier!", 
+            "Note" : "Det hadde vært gøy å starte en gründerbedrift i kommunen i mitt hjerte.",
+            "Author" : "Toni Sucic (21)",
+            "Icon": "culture.png"
+          }
+        }, 
+        {
+          "type" : "Feature", 
+          "id" : 2, 
+          "geometry" : 
+          {
+            "type" : "Point", 
+            "coordinates" : [
+              10.2436, 59.7854
+            ]
+          }, 
+          "properties" : {
+            "Title" : "Flere sykkelstativer!", 
+            "Note" : "Hva med å plassere ut flere sykkelstativer (gjerne innedørs) i nærheten av kollektivtilbud?",
+            "Author" : "Linn Haviken (24)",
+            "Icon": "sport.png"
+          }
+        },
+        {
+          "type" : "Feature", 
+          "id" : 3, 
+          "geometry" : 
+          {
+            "type" : "Point", 
+            "coordinates" : [
+              10.2455, 59.7865
+            ]
+          }, 
+          "properties" : {
+            "Title" : "Brødskiver er kjedelig!", 
+            "Note" : "Både barnehager og skoler burde hatt muligheten for varierte måltider. Det er viktig at barn og unge får variasjon i kosten, i det lange løp kan brødskiver skape kresne unger.",
+            "Author" : "Jonas Tovsen (32)", 
+            "Icon": "traffic.png"
+          }
+        },
+        {
+          "type" : "Feature", 
+          "id" : 4, 
+          "geometry" : 
+          {
+            "type" : "Point", 
+            "coordinates" : [
+              10.2468, 59.7888
+            ]
+          }, 
+          "properties" : {
+            "Title" : "Psykisk helse på nett", 
+            "Note" : "Et lavterskeltilbud på nett for barn og unge hvor man kan spørre spørsmål og være i dialog med feltarbeidere med helse- eller sosialfaglig bakgrunn og bred erfaring fra arbeid med ungdom.",
+            "Author" : "Jimo Namo (41)", 
+            "Icon": "health.png"
+          }
+        }
+      ]
+    }
+
+    var LierIcon = L.Icon.extend({
+    options: {
+        iconSize: [36, 50]
+      }
+    });
+
+    var geoJsonLayer = L.geoJSON(points, {
+         style: function (feature) {
+        return {color: feature.properties.color};
+      },
+      onEachFeature: function (feature, layer) {
+        layer.bindPopup("<b>" + feature.properties.Title + "</b></br>" + feature.properties.Note + "</br><i>Skrevet av " + feature.properties.Author + "</i>");
+      },
+      pointToLayer: function(feature, latlng) {
+        return L.marker(latlng, {
+          icon: new LierIcon({iconUrl: feature.properties.Icon})
+        })
+      }
+    })
+
+    geoJsonLayer.addTo(map)
+
+    var myStyle = {
+    "color": "#0080FF",
+    "weight": 5,
+    "opacity": 0.8, 
+    "fillOpacity": 0.0
+    };
+
+  // Add polygon for Lier kommune to map
+  L.geoJSON(lierPolygon, {
+      style: myStyle
+  }).addTo(map);
+
+  L.control.scale({
+    "metric": true, 
+    "imperial": false
+  }).addTo(map);
+
+</script>
+
+</body>
